@@ -1,0 +1,20 @@
+fid = fopen('buff.txt','r');
+A = fscanf(fid,'%f');
+plot(A,'x')
+
+fid = fopen('buff2.txt','r');
+A = fscanf(fid,'%f');
+plot(A,'x')
+
+fid = fopen('buff3.txt','r');
+A = fscanf(fid,'%f');
+time = linspace(1, size(A), size(A));
+plot(time,A)
+
+
+
+freq = 100000;
+simVals = 0.5*sin(2*pi*freq*time);
+
+hold on
+plot(time,simVals);

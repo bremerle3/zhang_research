@@ -1,0 +1,270 @@
+%%
+fid = fopen('buff_100kHz.txt','r');
+A = fscanf(fid,'%f');
+x = linspace(1, length(A), length(A));
+plot(x,A)
+
+freq = 100000;
+%time = 0:(1/(10000*freq)):(1/freq)-(1/(10000*freq));
+time = linspace( 0, 1/freq, length(x) );
+simVals = -0.5*sin(2*pi*freq*time);
+%%plot(time, simVals)
+
+hold on
+plot(x,simVals);
+legend({'Experimental', 'MATLAB'}, 'Position',[0.6,0.45,0.25,0.1]);
+title('100kHz sine wave');
+
+%%
+fid = fopen('buff_10kHz.txt','r');
+A = fscanf(fid,'%f');
+x = linspace(1, length(A), length(A));
+plot(x,A)
+
+freq = 10000;
+time = 0:(1/(10000*freq)):(1/freq)-(1/(10000*freq));
+simVals = -0.5*sin(2*pi*freq*time);
+%%plot(time, simVals)
+
+hold on
+plot(x,simVals);
+legend({'Experimental', 'MATLAB'}, 'Position',[0.6,0.45,0.25,0.1]);
+title('10kHz sine wave');
+
+%%
+fid = fopen('buff_1kHz.txt','r');
+A = fscanf(fid,'%f');
+nidaq_buffer = 1e4;
+nidaq_samples = 1e4;
+signal_freq = 1000;
+nidaq_interval = nidaq_buffer/nidaq_samples;
+
+time = linspace( 0, nidaq_interval, nidaq_samples );
+plot(time,A)
+
+simVals = 0.5*sin(2*pi*signal_freq*time);
+%%plot(time, simVals)
+
+hold on
+plot(time,simVals);
+legend({'Experimental', 'MATLAB'}, 'Position',[0.6,0.45,0.25,0.1]);
+title('10kHz sine wave');
+
+%%
+fid = fopen('buff_1kHz.txt','r');
+A = fscanf(fid,'%f');
+nidaq_buffer = 1e4;
+nidaq_samples = 1e4;
+signal_freq = 1000;
+nidaq_interval = nidaq_buffer/nidaq_samples;
+
+time = linspace( 0, nidaq_interval, nidaq_samples );
+plot(time,A)
+
+simVals = 0.5*sin(2*pi*signal_freq*time);
+%%plot(time, simVals)
+
+hold on
+plot(time,simVals);
+legend({'Experimental', 'MATLAB'}, 'Position',[0.6,0.45,0.25,0.1]);
+title('10kHz sine wave');
+
+%%
+fid = fopen('buff_1kHz_trig.txt','r');
+A = fscanf(fid,'%f');
+nidaq_buffer = 1e3;
+nidaq_samples = 1e5;
+signal_freq = 1000;
+nidaq_interval = nidaq_buffer/nidaq_samples;
+
+time = linspace( 0, nidaq_interval, nidaq_buffer );
+figure;
+plot(time,A,'x')
+
+simVals = 0.5*sin(2*pi*signal_freq*time);
+%%plot(time, simVals)
+
+hold on
+plot(time,simVals);
+legend({'Experimental', 'MATLAB'}, 'Position',[0.6,0.45,0.25,0.1]);
+title('1kHz sine wave');
+
+%%
+fid = fopen('buff_board.txt','r');
+A = fscanf(fid,'%f');
+nidaq_buffer = 1e3;
+nidaq_samples = 1e5;
+signal_freq = 1000;
+nidaq_interval = nidaq_buffer/nidaq_samples;
+
+time = linspace( 0, nidaq_interval, nidaq_buffer );
+figure;
+plot(time,A,'x')
+
+simVals = 0.5*sin(2*pi*signal_freq*time);
+%%plot(time, simVals)
+
+hold on
+plot(time,simVals);
+legend({'Experimental', 'MATLAB'}, 'Position',[0.6,0.45,0.25,0.1]);
+title('1kHz sine wave');
+
+%%
+fid = fopen('buff_board_overdamped.txt','r');
+A = fscanf(fid,'%f');
+nidaq_buffer = 2^10;
+nidaq_samples = 2^8;
+signal_freq = 1000;
+nidaq_interval = nidaq_buffer/nidaq_samples;
+
+time = linspace( 0, nidaq_interval, nidaq_buffer );
+figure;
+plot(time,A,'x')
+
+simVals = 0.5*sin(2*pi*signal_freq*time);
+%%plot(time, simVals)
+
+hold on
+plot(time,simVals);
+legend({'Experimental', 'MATLAB'}, 'Position',[0.6,0.45,0.25,0.1]);
+title('300mV Step Response');
+
+%%
+fid = fopen('buff_5_14.txt','r');
+A = fscanf(fid,'%f');
+nidaq_buffer = 2^12;
+nidaq_samples = 2^10;
+signal_freq = 1000;
+nidaq_interval = nidaq_buffer/nidaq_samples;
+
+time = linspace( 0, nidaq_interval, nidaq_buffer );
+figure;
+plot(time,A,'x')
+
+simVals = 0.5*sin(2*pi*signal_freq*time);
+%%plot(time, simVals)
+
+hold on
+plot(time,simVals);
+legend({'Experimental', 'MATLAB'}, 'Position',[0.6,0.45,0.25,0.1]);
+title('300mV Step Response');
+
+%%
+fid = fopen('buff_square.txt','r');
+A = fscanf(fid,'%f');
+nidaq_buffer = 2^12;
+nidaq_samples = 2^10;
+signal_freq = 1000;
+nidaq_interval = nidaq_buffer/nidaq_samples;
+
+time = linspace( 0, nidaq_interval, nidaq_buffer );
+figure;
+plot(time,A,'x')
+
+simVals = 0.5*sin(2*pi*signal_freq*time);
+%%plot(time, simVals)
+
+hold on
+plot(time,simVals);
+legend({'Experimental', 'MATLAB'}, 'Position',[0.6,0.45,0.25,0.1]);
+title('300mV Step Response');
+
+%%
+fid = fopen('buff_1st_iter.txt','r');
+A = fscanf(fid,'%f');
+nidaq_buffer = 2^12;
+nidaq_samples = 2^10;
+signal_freq = 1000;
+nidaq_interval = nidaq_buffer/nidaq_samples;
+
+time = linspace( 0, nidaq_interval, nidaq_buffer );
+figure;
+plot(time,A,'x')
+
+simVals = 0.5*sin(2*pi*signal_freq*time);
+%%plot(time, simVals)
+
+hold on
+plot(time,simVals);
+legend({'Experimental', 'MATLAB'}, 'Position',[0.6,0.45,0.25,0.1]);
+title('300mV Step Response');
+
+%%
+fid = fopen('buff_2nd_iter.txt','r');
+A = fscanf(fid,'%f');
+nidaq_buffer = 2^12;
+nidaq_samples = 2^10;
+signal_freq = 1000;
+nidaq_interval = nidaq_buffer/nidaq_samples;
+
+time = linspace( 0, nidaq_interval, nidaq_buffer );
+figure;
+plot(time,A,'x')
+
+simVals = 0.5*sin(2*pi*signal_freq*time);
+%%plot(time, simVals)
+
+hold on
+plot(time,simVals);
+legend({'Experimental', 'MATLAB'}, 'Position',[0.6,0.45,0.25,0.1]);
+title('300mV Step Response');
+
+%%
+fid = fopen('buff2_1st_iter.txt','r');
+A = fscanf(fid,'%f');
+nidaq_buffer = 2^12;
+nidaq_samples = 2^10;
+signal_freq = 1000;
+nidaq_interval = nidaq_buffer/nidaq_samples;
+
+time = linspace( 0, nidaq_interval, nidaq_buffer );
+figure;
+plot(time,A,'x')
+
+simVals = 0.5*sin(2*pi*signal_freq*time);
+%%plot(time, simVals)
+
+hold on
+plot(time,simVals);
+legend({'Experimental', 'MATLAB'}, 'Position',[0.6,0.45,0.25,0.1]);
+title('300mV Step Response');
+
+%%
+fid = fopen('buff2_2nd_iter.txt','r');
+A = fscanf(fid,'%f');
+nidaq_buffer = 2^12;
+nidaq_samples = 2^10;
+signal_freq = 1000;
+nidaq_interval = nidaq_buffer/nidaq_samples;
+
+time = linspace( 0, nidaq_interval, nidaq_buffer );
+figure;
+plot(time,A,'x')
+
+simVals = 0.5*sin(2*pi*signal_freq*time);
+%%plot(time, simVals)
+
+hold on
+plot(time,simVals);
+legend({'Experimental', 'MATLAB'}, 'Position',[0.6,0.45,0.25,0.1]);
+title('300mV Step Response');
+
+%%
+fid = fopen('buff_demo.txt','r');
+A = fscanf(fid,'%f');
+nidaq_buffer = 2^12;
+nidaq_samples = 2^10;
+signal_freq = 1000;
+nidaq_interval = nidaq_buffer/nidaq_samples;
+
+time = linspace( 0, nidaq_interval, nidaq_buffer );
+figure;
+plot(time,A,'x')
+
+simVals = 0.5*sin(2*pi*signal_freq*time);
+%%plot(time, simVals)
+
+hold on
+plot(time,simVals);
+legend({'Experimental', 'MATLAB'}, 'Position',[0.6,0.45,0.25,0.1]);
+title('300mV Step Response');

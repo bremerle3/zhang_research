@@ -1,0 +1,11 @@
+% y(t)'' + a*y'(t) + b*y(t) = u(t)
+a = 3;
+b = 2;
+c = 1;
+% Controller canonical form
+A = [0 1; -b -a];
+B = [0; 1];
+C = [c 0 0];
+
+phi = expm(A);
+sys = C*phi*B;
